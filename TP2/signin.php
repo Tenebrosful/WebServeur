@@ -36,7 +36,7 @@
     <input type="submit" value="Actualiser la page avec POST">
 </form>
 
-<form method="get" action="">
-    <input type="submit" value="Actualiser la page avec get">
+<form method="get" action="authenticate.php">
+    <input type="submit" value="Se connecter en GET">
 </form>
 </body>
