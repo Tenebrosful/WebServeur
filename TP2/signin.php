@@ -8,7 +8,7 @@
 <?php
     if ($_SERVER["REQUEST_METHOD"] === 'GET') :
 ?>
-    <form method="get" action="authenticate.php">
+    <form method="post" action="authenticate.php">
         <div>
             <label>Nom d'utilisateur</label>
             <input name="username" required>
