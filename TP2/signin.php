@@ -22,7 +22,7 @@
 <?php
     else:
 ?>
-    <div>Une erreur c'est produite : une requête get est attendu</div>
+    <div>Une erreur c'est produite : une requête GET est attendu</div>
     <div>Requête actuelle : <?php echo $_SERVER["REQUEST_METHOD"] ?></div>
 <?php
     endif;
