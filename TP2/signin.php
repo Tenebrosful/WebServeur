@@ -29,7 +29,11 @@
 ?>
 
 <form method="post" action="">
-    <input type="submit" value="Actualiser la page avec post">
+    <input type="submit" value="Actualiser la page avec POST">
+</form>
+
+<form method="get" action="">
+    <input type="submit" value="Actualiser la page avec POST">
 </form>
 
 <form method="get" action="">
