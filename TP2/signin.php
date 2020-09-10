@@ -7,6 +7,9 @@
 <body>
 <?php
 if ($_SERVER["REQUEST_METHOD"] === 'GET') :
+    session_start();
+    if (isset($_SESSION["message"]) && !empty($_SESSION["message"]))
+        echo "<div class='message'>{$_SESSION['message']}</div>";
     ?>
     <form method="post" action="authenticate.php">
         <div>

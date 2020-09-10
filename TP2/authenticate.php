@@ -19,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
         exit();
     } else
         echo $passwordError;
+        session_start();
+        $_SESSION["message"] = "Le nom d'utilisateur ou le mot de passe est incorrect !";
 } else
     echo $methodError;
 ?>
