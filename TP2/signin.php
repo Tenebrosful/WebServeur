@@ -6,8 +6,8 @@
 </head>
 <body>
 <?php
-    if ($_SERVER["REQUEST_METHOD"] === 'GET') :
-?>
+if ($_SERVER["REQUEST_METHOD"] === 'GET') :
+    ?>
     <form method="post" action="authenticate.php">
         <div>
             <label>Nom d'utilisateur</label>
@@ -20,12 +20,12 @@
         <input type="submit" value="Se connecter">
     </form>
 <?php
-    else:
-?>
+else:
+    ?>
     <div>Une erreur c'est produite : une requête GET est attendu</div>
     <div>Requête actuelle : <?php echo $_SERVER["REQUEST_METHOD"] ?></div>
 <?php
-    endif;
+endif;
 ?>
 
 <form method="post" action="">
