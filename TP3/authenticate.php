@@ -11,16 +11,34 @@ $passwordError = "<div>ERREUR : Le nom d'utilisateur ou le mot de passe est inco
 $methodError = "<div>Une erreur c'est produite : une requête POST est attendu</div><div>Requête actuelle : " . $_SERVER['REQUEST_METHOD'] . "</div><a href='signin.php'><input type='button' value='Retourner vers la page de connection'></a>";
 
 if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-    require "users.php";
-    if (key_exists($_POST["username"], $users) && $users[$_POST["username"]] === $_POST["password"]) {
+    require "bdd.php";
+
+    if (isset($erreurConnexion)){
         session_start();
-        $_SESSION["username"] = $_POST["username"];
-        header('Location: welcome.php');
-        exit();
-    } else
-        echo $passwordError;
-        session_start();
-        $_SESSION["message"] = "Le nom d'utilisateur ou le mot de passe est incorrect !";
+        $_SESSION["message"] = "Erreur de connexion à la base de donnée !";
+        header('Location: signin.php');
+    }
+    /** @var $bdd */
+    try {
+        $stUserConnect = $bdd->prepare('SELECT COUNT(*) FROM Userzs WHERE username = :username AND password = :password');
+        $stUserConnect->bindParam(":username",$_POST["username"]);
+        $stUserConnect->bindParam(":password",$_POST["password"]);
+
+        if ($stUserConnect->execute() && $stUserConnect->fetchColumn() != 0) {
+            session_start();
+            $_SESSION["username"] = $_POST["username"];
+            header('Location: welcome.php');
+            exit();
+        } else {
+            session_start();
+            $_SESSION["message"] = "Le nom d'utilisateur ou le mot de passe est incorrect !";
+            header('Location: signin.php');
+        }
+    } catch (PDOException $e){
+        $_SESSION["message"] = "Une erreur est survenu concernant la base de donnée, veuillez consulter les logs !";
+        header('Location: signin.php');
+    }
+
 } else
     echo $methodError;
 ?>
