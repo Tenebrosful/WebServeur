@@ -1,7 +1,12 @@
 <?php
 
-define("dns","mysql:host=localhost:3306");
-define("user","bernar323u");
+define("dns","mysql:host=localhost;dbname=PWeb");
+define("user","bernar32z3u");
 define("pass","PandaRoux");
 
-$bdd = new PDO(dns, user, pass);
+try {
+    $bdd = new PDO(dns, user, pass);
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e){
+    $erreurConnexion = true;
+}
