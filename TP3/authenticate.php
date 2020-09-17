@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
     }
     /** @var $bdd */
     try {
-        $stUserConnect = $bdd->prepare('SELECT COUNT(*) FROM Userzs WHERE username = :username AND password = :password');
+        $stUserConnect = $bdd->prepare('SELECT COUNT(*) FROM Users WHERE username = :username AND password = :password');
         $stUserConnect->bindParam(":username",$_POST["username"]);
         $stUserConnect->bindParam(":password",$_POST["password"]);
 
