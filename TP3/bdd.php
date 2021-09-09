@@ -1,7 +1,7 @@
 <?php
 
-define("dns","mysql:host=localhost;dbname=PWeb");
-define("user","bernar32z3u");
+define("dns","mysql:host=localhost;dbname=webServeur");
+define("user","tenebrosful");
 define("pass","PandaRoux");
 
 try {

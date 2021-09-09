@@ -36,7 +36,7 @@ endif;
 </form>
 
 <form method="get" action="">
-    <input type="submit" value="Actualiser la page avec POST">
+    <input type="submit" value="Actualiser la page avec GET">
 </form>
 
 <form method="get" action="authenticate.php">

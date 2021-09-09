@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === 'POST') {
         session_start();
         $_SESSION["message"] = "Erreur de connexion à la base de donnée !";
         header('Location: signin.php');
+        exit();
     }
     /** @var $bdd */
     try {
